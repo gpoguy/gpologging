@@ -1,0 +1,42 @@
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName>enter name here</displayName>
+  <description>enter description here</description>
+  <resources>
+    <stringTable>
+      <string id="System">System</string>
+      <string id="GroupPolicy">Group Policy Logging</string>
+      <string id="Logging">Logging</string>
+      <string id="USERENV">Enable GPSVC.Log logging of Policy</string>
+      <string id="USERENV_HELP">This policy enables verbose logging of policy to the gpsvc.log file. This file can be found in %SystemRoot%\Debug\UserMode. You may have to create the UserMode folder if it doesn't already exist</string>
+      <string id="VerboseAll">Log all Group Policy-related events in verbose mode</string>
+      <string id="RIS">Log only events related to RIS Policy</string>
+      <string id="AppDeploy">Log only events related to Software Installation Policy</string>
+      <string id="VerboseLogging">Enable Verbose GPSVC logging</string>
+      <string id="NoneLogging">Disable all GPSVC logging</string>
+      <string id="USERENVMODE">Set GPSVC logging level</string>
+      <string id="GPEditor">Enable Logging during Group Policy editing (client-side only).</string>
+      <string id="GPEditor_HELP">Enabling this policy logs any client-side errors that occurs while you're editing a GPO. This log is kept in %windir%\Debug\UserMode\gpedit.log</string>
+      <string id="ADMLoad">Enable Logging of the loading of ADM files into the Group Policy Editor</string>
+      <string id="ADMLoad_HELP">Enabling this policy logs any errors that occur when ADM files are loaded during Group Policy Editing. This log can detect syntax errors within and ADM and points out where those errors occur in the file. This log is kept in %windir%\Debug\UserMode\gptext.log</string>
+      <string id="FolderRedir">Enable Logging of Folder Redirection policy</string>
+      <string id="FolderRedir_HELP">Enabling this policy logs all activity related to Folder Redirection. This log is kept in %windir%\Debug\UserMode\fdeploy.log</string>
+      <string id="AppMgmt">Enable logging of Software Installation policy</string>
+      <string id="AppMgmt_HELP">Enabling this policy logs all activity related to Software Installation. This log is kept in %windir%\Debug\UserMode\appmgmt.log</string>
+      <string id="SECEDIT">Enable logging of Security Policy</string>
+      <string id="SECEDIT_HELP">Enabling this policy logs all activity related to security policy. This log is kept in %windir%\security\logs\winlogon.log</string>
+      <string id="GPMC">Enable GPMC-related Logging</string>
+      <string id="GPMC_HELP">Enabling of this policy logs all activity related to the GPMC. This log is kept in %temp%\GpMgmt.log</string>
+      <string id="GPMC_MODE">Set GPMC logging level</string>
+      <string id="ErrorOnly">GPMC Error Logging Only</string>
+      <string id="ErrorAndVerbose">GPMC Error and Verbose Logging</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="GPMC">
+        <dropdownList refId="GPMC_MODE" defaultItem="0">Set GPMC logging level</dropdownList>
+      </presentation>
+      <presentation id="USERENV">
+        <dropdownList refId="USERENVMODE" defaultItem="0">Set GPSVC logging level</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

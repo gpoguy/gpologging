@@ -1,0 +1,104 @@
+<policyDefinitions revision="1.0" schemaVersion="1.0">
+  <policyNamespaces>
+    <target prefix="gpoguy" namespace="Gpoguy.Policies.Logging" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <supersededAdm fileName="gpolog.adm" />
+  <resources minRequiredRevision="1.0" />
+  <categories>
+    <category name="GroupPolicyLogging" displayName="$(string.GroupPolicy)">
+      <parentCategory ref="windows:System" />
+    </category>
+    <category name="Logging" displayName="$(string.Logging)">
+      <parentCategory ref="GroupPolicyLogging" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="GPMC" class="Machine" displayName="$(string.GPMC)" explainText="$(string.GPMC_HELP)" presentation="$(presentation.GPMC)" key="Software\Microsoft\Windows NT\CurrentVersion\Diagnostics">
+      <parentCategory ref="Logging" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <elements>
+        <enum id="GPMC_MODE" valueName="GpMgmtTraceLevel">
+          <item displayName="$(string.ErrorOnly)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.ErrorAndVerbose)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="USERENV" class="Machine" displayName="$(string.USERENV)" explainText="$(string.USERENV_HELP)" presentation="$(presentation.USERENV)" key="Software\Microsoft\Windows NT\CurrentVersion\Diagnostics">
+      <parentCategory ref="Logging" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <elements>
+        <enum id="USERENVMODE" valueName="GPSvcDebugLevel">
+          <item displayName="$(string.VerboseLogging)">
+            <value>
+              <decimal value="196610" />
+            </value>
+          </item>
+          <item displayName="$(string.NoneLogging)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="GPEditor" class="Machine" displayName="$(string.GPEditor)" explainText="$(string.GPEditor_HELP)" key="Software\Microsoft\Windows NT\CurrentVersion\Winlogon" valueName="GPEditDebugLevel">
+      <parentCategory ref="Logging" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledValue>
+        <decimal value="65538" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="ADMLoad" class="Machine" displayName="$(string.ADMLoad)" explainText="$(string.ADMLoad_HELP)" key="Software\Microsoft\Windows NT\CurrentVersion\Winlogon" valueName="GPTextDebugLevel">
+      <parentCategory ref="Logging" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledValue>
+        <decimal value="65538" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="FolderRedir" class="Machine" displayName="$(string.FolderRedir)" explainText="$(string.FolderRedir_HELP)" key="Software\Microsoft\Windows NT\CurrentVersion\Diagnostics" valueName="FDeployDebugLevel">
+      <parentCategory ref="Logging" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledValue>
+        <decimal value="15" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="AppMgmt" class="Machine" displayName="$(string.AppMgmt)" explainText="$(string.AppMgmt_HELP)" key="Software\Microsoft\Windows NT\CurrentVersion\Diagnostics" valueName="AppmgmtDebugLevel">
+      <parentCategory ref="Logging" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledValue>
+        <decimal value="155" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="SECEDIT" class="Machine" displayName="$(string.SECEDIT)" explainText="$(string.SECEDIT_HELP)" key="Software\Microsoft\Windows NT\CurrentVersion\Winlogon\GPExtensions\{827D319E-6EAC-11D2-A4EA-00C04F79F83A}" valueName="ExtensionDebugLevel">
+      <parentCategory ref="Logging" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledValue>
+        <decimal value="2" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+  </policies>
+</policyDefinitions>
